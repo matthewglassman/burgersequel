@@ -1,38 +1,67 @@
-var express = require("express");
-var router = express.Router();
+//Requiring the models
 
-var burger = require("../models/burger.js");
+var db = require("../models");
 
-router.get("/", function(req, res){
-	burger.all(function(data) {
-		var handlebarsObject = {
-			burgers: data
-		};
-		console.log(handlebarsObject);
-		res.render("index", handlebarsObject);
+//Routing
+
+module.exports = function(app){
+
+	//Get burgers
+	app.get("/api/burgers", function(req, res){
+		db.BurgerOrder.findAll({}).then(function(dbBurgerOrder){
+			res.json(dbBurgerOrder);
+		});
 	});
-});
 
-router.post("/", function(req, res){
-	burger.create([
-		"burger_name"
-		], [
-		req.body.name
-		], function(){
-			res.redirect("/");
+	//Create new burgers
+	app.post("/api/burgers", function(req, res){
+		db.BurgerOrder.create([
+			"burger_name"
+			],[
+			req.body.name
+			]).then(function(dbBurgerOrder){
+				res.json(dbBurgerOrder);
+		});
 	});
-});
+}
 
-router.put("/:burger_name", function(req, res) {
-	var condition = "burger_name = '" + req.params.burger_name + "'";
+
+
+// var express = require("express");
+// var router = express.Router();
+
+// var burger = require("../models/burger.js");
+
+// router.get("/", function(req, res){
+// 	burger.all(function(data) {
+// 		var handlebarsObject = {
+// 			burgers: data
+// 		};
+// 		console.log(handlebarsObject);
+// 		res.render("index", handlebarsObject);
+// 	});
+// });
+
+// router.post("/", function(req, res){
+// 	burger.create([
+// 		"burger_name"
+// 		], [
+// 		req.body.name
+// 		], function(){
+// 			res.redirect("/");
+// 	});
+// });
+
+// router.put("/:burger_name", function(req, res) {
+// 	var condition = "burger_name = '" + req.params.burger_name + "'";
 	
-	console.log("condition", condition);
+// 	console.log("condition", condition);
 
-	burger.update({
-		devoured: req.body.devoured
-	}, condition, function(){
-		res.redirect("/");
-	});
-});
+// 	burger.update({
+// 		devoured: req.body.devoured
+// 	}, condition, function(){
+// 		res.redirect("/");
+// 	});
+// });
 
-module.exports = router;
+// module.exports = router;
