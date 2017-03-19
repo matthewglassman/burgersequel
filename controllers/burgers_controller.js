@@ -23,7 +23,22 @@ module.exports = function(app){
 				res.json(dbBurgerOrder);
 		});
 	});
-}
+
+	//update burgers
+	app.put("/api/:burger_name", function(req, res){
+		//var condition = "burger_name = '" + req.params.burger_name + "'";
+
+		db.BurgerOrder.update({
+			devoured: req.body.devoured
+		}, {
+			where: {
+				burger_name: req.params.burger_name
+			}
+		}).then(function(dbBurgerOrder){
+			res.json(dbBurgerOrder);
+		});
+
+};
 
 
 
