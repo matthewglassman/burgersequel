@@ -43,7 +43,7 @@ module.exports = function(app){
 			}
 		}).then(function(dbBurgerOrder){
 			res.json(dbBurgerOrder);
-		});
+	});
 
 };
 
