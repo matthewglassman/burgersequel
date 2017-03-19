@@ -15,13 +15,20 @@ module.exports = function(app){
 
 	//Create new burgers
 	app.post("/api/burgers", function(req, res){
-		db.BurgerOrder.create([
-			"burger_name"
-			],[
-			req.body.name
-			]).then(function(dbBurgerOrder){
-				res.json(dbBurgerOrder);
+		db.BurgerOrder.create({
+			burger_name: req.body.name,
+			devoured: req.body.devoured
+		}).then(function(dbBurgerOrder){
+			res.json(dbBurgerOrder)
 		});
+
+		// db.BurgerOrder.create([
+		// 	"burger_name"
+		// 	],[
+		// 	req.body.name
+		// 	]).then(function(dbBurgerOrder){
+		// 		res.json(dbBurgerOrder);
+		// });
 	});
 
 	//update burgers
