@@ -20,7 +20,6 @@ app.set('view engine', 'handlebars');
 var routes = require("./routes/api-routes.js");
 app.use("/", routes);
 
-//require("./routes/api-routes.js")(app);
 
 
 //Syncing models here
