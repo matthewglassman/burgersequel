@@ -17,8 +17,11 @@ app.use(methodOverride('_method'));
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
-require("./routes/api-routes.js")(app);
-require("./routes/html-routes.js")(app);
+var routes = require("./routes/api-routes.js");
+app.use("/", routes);
+
+//require("./routes/api-routes.js")(app);
+
 
 //Syncing models here
 db.sequelize.sync().then(function(){

@@ -1,10 +1,21 @@
 {
-  "name": "burgerthesequel",
+  "name": "sequelizedburger",
   "version": "0.0.2",
-  "description": "Restaurant app that lets users input the names of burgers they'd like to eat and devour. Burgers are stored in MySQL database. This application uses Sequelize.",
+  "description": "Replacing basic ORMs with Sequelized Version",
   "main": "server.js",
+  "dependencies": {
+    "express-handlebars": "^3.0.0",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "method-override": "^2.3.7",
+    "mysql": "^2.13.0",
+    "path": "^0.12.7",
+    "sequelize": "^3.30.2"
+  },
+  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -15,14 +26,5 @@
   "bugs": {
     "url": "https://github.com/matthewglassman/burgersequel/issues"
   },
-  "homepage": "https://github.com/matthewglassman/burgersequel#readme",
-  "dependencies": {
-    "body-parser": "^1.17.1",
-    "express": "^4.15.2",
-    "express-handlebars": "^3.0.0",
-    "method-override": "^2.3.7",
-    "mysql": "^2.13.0",
-    "path": "^0.12.7",
-    "sequelize": "^3.30.2"
-  }
+  "homepage": "https://github.com/matthewglassman/burgersequel#readme"
 }
