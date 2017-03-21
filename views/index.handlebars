@@ -13,7 +13,7 @@
 			{{#each burgers}}
 				{{#unless this.devoured}}
 			<div class="col-xs-9 text-center">
-					<pre>{{this.burger_id}}. {{this.burger_name}}</pre>
+					<pre>{{this.id}}. {{this.burger_name}}</pre>
 			</div>
 		<div class="col-xs-3 text-center">
 			<form action="/{{this.burger_name}}?_method=PUT" method="POST">
