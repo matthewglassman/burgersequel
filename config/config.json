@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "F3rmenter!",
+    "password": "",
     "database": "burgersequel_db",
     "host": "localhost",
     "dialect": "mysql"
