@@ -28,7 +28,7 @@
 	<div class="col-xs-6 text-center" class="task">
 		{{#each burgers}}
 			{{#if this.devoured}}
-				<pre>{{this.burger_id}}. {{this.burger_name}}</pre>
+				<pre>{{this.id}}. {{this.burger_name}}</pre>
 				<form action="/{{this.burger_name}}?_method=PUT" method="POST">
 					<input type="hidden" name="devoured" value="false">
 				</form>

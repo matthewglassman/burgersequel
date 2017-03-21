@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes){
-	var BurgerOrder = sequelize.define("Burger", {
+	var burgers = sequelize.define("burgers", {
 		burger_name:{
 			type: DataTypes.STRING,
 			allowNull: false,
@@ -9,11 +9,10 @@ module.exports = function(sequelize, DataTypes){
 		},
 		devoured: {
 			type: DataTypes.BOOLEAN,
-			allowNull: false,
-			defaultValue: 0
+			defaultValue: false
 		}
 	});
-	return BurgerOrder;
+	return burgers;
 };
 // var orm = require("../config/orm.js");
 
